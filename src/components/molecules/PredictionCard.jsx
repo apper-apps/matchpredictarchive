@@ -73,9 +73,10 @@ Prédiction de Match
 <div className="mt-6 pt-6 border-t border-white/10">
           <h4 className="text-sm font-semibold text-white/80 mb-3">Facteurs Clés d'Analyse</h4>
           <div className="flex flex-wrap gap-2">
-            {Object.entries(prediction.analysisFactors).map(([key, value]) => (
-              <Badge key={key} variant="secondary" className="text-xs">
-                {key}: {value}
+{Object.entries(prediction.analysisFactors).map(([key, value]) => (
+              <Badge key={key} variant="secondary" className="text-xs flex items-center space-x-1">
+                <ApperIcon name="TrendingUp" size={10} />
+                <span>{key}: {typeof value === 'number' ? `${value}%` : value}</span>
               </Badge>
             ))}
           </div>

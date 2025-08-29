@@ -20,7 +20,7 @@
       "reliability": 87,
       "lastUpdate": "2024-01-15T10:15:00Z"
     }
-  },
+},
   "algorithmFactors": {
     "playerCompetence": 25,
     "teamFormation": 20,
@@ -28,5 +28,44 @@
     "defenseQuality": 15,
     "firstHalfGoals": 10,
     "headToHeadRecord": 15
-  }
+  },
+  "liveMatches": [
+    {
+      "homeTeam": "PSG",
+      "awayTeam": "Marseille",
+      "homeScore": 2,
+      "awayScore": 1,
+      "minute": 67,
+      "status": "En cours",
+      "hasNewEvents": true,
+      "events": [
+        {
+          "type": "goal",
+          "minute": 23,
+          "description": "But de Mbappé",
+          "player": "Kylian Mbappé"
+        },
+        {
+          "type": "goal", 
+          "minute": 45,
+          "description": "But de Payet",
+          "player": "Dimitri Payet"
+        },
+        {
+          "type": "goal",
+          "minute": 65,
+          "description": "But de Neymar",
+          "player": "Neymar Jr"
+        }
+      ],
+      "statistics": {
+        "possession": { "home": 65, "away": 35 },
+        "shots": { "home": 12, "away": 8 },
+        "shotsOnTarget": { "home": 6, "away": 4 },
+        "corners": { "home": 5, "away": 3 },
+        "fouls": { "home": 8, "away": 12 },
+        "yellowCards": { "home": 2, "away": 3 }
+      }
+    }
+  ]
 }

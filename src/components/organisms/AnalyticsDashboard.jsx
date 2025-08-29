@@ -1,9 +1,9 @@
 import React from "react";
-import Card from "@/components/atoms/Card";
-import TeamCard from "@/components/molecules/TeamCard";
-import PredictionCard from "@/components/molecules/PredictionCard";
-import Badge from "@/components/atoms/Badge";
 import ApperIcon from "@/components/ApperIcon";
+import PredictionCard from "@/components/molecules/PredictionCard";
+import TeamCard from "@/components/molecules/TeamCard";
+import Card from "@/components/atoms/Card";
+import Badge from "@/components/atoms/Badge";
 
 const AnalyticsDashboard = ({ matchData, h2hData, teamMetrics, prediction }) => {
   const getH2HStats = () => {
@@ -118,7 +118,7 @@ const AnalyticsDashboard = ({ matchData, h2hData, teamMetrics, prediction }) => 
         />
       </div>
       
-      {prediction && (
+{prediction && (
         <PredictionCard prediction={prediction} />
       )}
     </div>

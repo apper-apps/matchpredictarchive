@@ -1,5 +1,7 @@
 import teamMetricsData from "@/services/mockData/teamMetrics.json";
 import sportsData from "@/services/mockData/sportsData.json";
+import React from "react";
+import Error from "@/components/ui/Error";
 
 // Simulate realistic loading delays
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -145,9 +147,59 @@ const predictionService = {
     }
   },
   
-  async getDataSources() {
+async getDataSources() {
     await delay(100);
     return sportsData.dataSources;
+  },
+
+  async getLiveMatchData(homeTeam, awayTeam) {
+    await delay(500);
+    
+    // Simulate live match data
+    const liveMatch = sportsData.liveMatches.find(
+      match => match.homeTeam === homeTeam && match.awayTeam === awayTeam
+    ) || {
+      homeTeam,
+      awayTeam,
+      homeScore: Math.floor(Math.random() * 4),
+      awayScore: Math.floor(Math.random() * 4),
+      minute: Math.floor(Math.random() * 90) + 1,
+      status: "En cours",
+      hasNewEvents: Math.random() > 0.7,
+      events: [
+        {
+          type: "goal",
+          minute: 23,
+          description: "But marqué",
+          player: "Joueur A"
+        },
+        {
+          type: "card",
+          minute: 45,
+          description: "Carton jaune",
+          player: "Joueur B"
+        }
+      ],
+      statistics: {
+        possession: { home: 60, away: 40 },
+        shots: { home: 8, away: 5 },
+        corners: { home: 3, away: 2 },
+        fouls: { home: 7, away: 9 }
+      }
+    };
+
+    return liveMatch;
+  },
+
+  async getSourceStatus() {
+    await delay(300);
+    return Object.entries(sportsData.dataSources).reduce((acc, [key, source]) => {
+      acc[key] = {
+        ...source,
+        reliability: Math.max(70, source.reliability + Math.floor(Math.random() * 10) - 5)
+      };
+      return acc;
+}, {});
   }
 };
 

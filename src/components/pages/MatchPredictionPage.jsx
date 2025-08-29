@@ -3,11 +3,11 @@ import MatchInputForm from "@/components/organisms/MatchInputForm";
 import HeadToHeadForm from "@/components/organisms/HeadToHeadForm";
 import ChatInterface from "@/components/organisms/ChatInterface";
 import AnalyticsDashboard from "@/components/organisms/AnalyticsDashboard";
+import LiveDataFeed from "@/components/molecules/LiveDataFeed";
 import Loading from "@/components/ui/Loading";
 import Error from "@/components/ui/Error";
 import { predictionService } from "@/services/api/predictionService";
 import { toast } from "react-toastify";
-
 const MatchPredictionPage = () => {
   const [matchData, setMatchData] = useState(null);
   const [h2hData, setH2hData] = useState([]);
@@ -148,7 +148,7 @@ if (message.toLowerCase().includes("predict") || message.toLowerCase().includes(
   }
   
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
         {/* Left Column - Forms and Chat */}
         <div className="xl:col-span-1 space-y-8">
