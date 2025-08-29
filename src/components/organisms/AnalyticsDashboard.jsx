@@ -24,9 +24,9 @@ const AnalyticsDashboard = ({ matchData, h2hData, teamMetrics, prediction }) => 
         <div className="w-16 h-16 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
           <ApperIcon name="BarChart3" className="w-8 h-8 text-primary-400" />
         </div>
-        <h3 className="text-lg font-semibold text-white mb-2">Analytics Dashboard</h3>
+<h3 className="text-lg font-semibold text-white mb-2">Tableau de Bord Analytique</h3>
         <p className="text-white/60">
-          Enter match details to view comprehensive team analysis and predictions
+          Saisissez les détails du match pour voir l'analyse complète des équipes et les prédictions
         </p>
       </Card>
     );
@@ -40,7 +40,7 @@ const AnalyticsDashboard = ({ matchData, h2hData, teamMetrics, prediction }) => 
             <ApperIcon name="Trophy" className="w-5 h-5 text-white" />
           </div>
           <div>
-            <h2 className="text-xl font-display font-bold text-white">Match Overview</h2>
+<h2 className="text-xl font-display font-bold text-white">Aperçu du Match</h2>
             <p className="text-sm text-white/60">
               {matchData.championship} • {matchData.date.toLocaleDateString()}
             </p>
@@ -52,16 +52,16 @@ const AnalyticsDashboard = ({ matchData, h2hData, teamMetrics, prediction }) => 
             <div className="text-2xl font-display font-bold text-white mb-1">
               {matchData.homeTeam}
             </div>
-            <Badge variant="accent">Home</Badge>
+<Badge variant="accent">Domicile</Badge>
             <div className="text-lg font-semibold text-accent-500 mt-2">
               {matchData.homeCoefficient}
             </div>
           </div>
           
           <div className="text-center flex flex-col justify-center">
-            <div className="text-4xl font-display font-bold text-primary-400 mb-2">VS</div>
+<div className="text-4xl font-display font-bold text-primary-400 mb-2">VS</div>
             <div className="text-lg font-semibold text-white/60">
-              Draw: {matchData.drawCoefficient}
+              Match Nul: {matchData.drawCoefficient}
             </div>
           </div>
           
@@ -69,7 +69,7 @@ const AnalyticsDashboard = ({ matchData, h2hData, teamMetrics, prediction }) => 
             <div className="text-2xl font-display font-bold text-white mb-1">
               {matchData.awayTeam}
             </div>
-            <Badge variant="secondary">Away</Badge>
+<Badge variant="secondary">Extérieur</Badge>
             <div className="text-lg font-semibold text-secondary-500 mt-2">
               {matchData.awayCoefficient}
             </div>
@@ -80,26 +80,26 @@ const AnalyticsDashboard = ({ matchData, h2hData, teamMetrics, prediction }) => 
       {h2hStats && (
         <Card>
           <div className="flex items-center space-x-3 mb-4">
-            <ApperIcon name="History" className="w-5 h-5 text-primary-400" />
-            <h3 className="font-semibold text-white">Head-to-Head Statistics</h3>
+<ApperIcon name="History" className="w-5 h-5 text-primary-400" />
+            <h3 className="font-semibold text-white">Statistiques Face-à-Face</h3>
           </div>
           
           <div className="grid grid-cols-4 gap-4 text-center">
             <div>
-              <div className="text-2xl font-bold text-success">{h2hStats.homeWins}</div>
-              <div className="text-xs text-white/60">{matchData.homeTeam} Wins</div>
+<div className="text-2xl font-bold text-success">{h2hStats.homeWins}</div>
+              <div className="text-xs text-white/60">Victoires {matchData.homeTeam}</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-white/60">{h2hStats.draws}</div>
-              <div className="text-xs text-white/60">Draws</div>
+<div className="text-2xl font-bold text-white/60">{h2hStats.draws}</div>
+              <div className="text-xs text-white/60">Matchs Nuls</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-warning">{h2hStats.awayWins}</div>
-              <div className="text-xs text-white/60">{matchData.awayTeam} Wins</div>
+<div className="text-2xl font-bold text-warning">{h2hStats.awayWins}</div>
+              <div className="text-xs text-white/60">Victoires {matchData.awayTeam}</div>
             </div>
             <div>
-              <div className="text-2xl font-bold text-primary-400">{h2hStats.total}</div>
-              <div className="text-xs text-white/60">Total Matches</div>
+<div className="text-2xl font-bold text-primary-400">{h2hStats.total}</div>
+              <div className="text-xs text-white/60">Total des Matchs</div>
             </div>
           </div>
         </Card>

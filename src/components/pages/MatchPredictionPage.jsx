@@ -34,12 +34,12 @@ const MatchPredictionPage = () => {
       setMatchData(data);
       
       // Add user message
-      addMessage(`Analyze match: ${data.homeTeam} vs ${data.awayTeam} in ${data.championship}`);
+addMessage(`Analyse du match: ${data.homeTeam} vs ${data.awayTeam} en ${data.championship}`);
       
       // Simulate AI processing
       setTimeout(() => {
         addMessage(
-          `Match data received! I can see ${data.homeTeam} (coefficient: ${data.homeCoefficient}) playing against ${data.awayTeam} (coefficient: ${data.awayCoefficient}) with a draw coefficient of ${data.drawCoefficient}. Please add head-to-head data for more accurate predictions.`,
+          `Données de match reçues ! Je vois ${data.homeTeam} (cote: ${data.homeCoefficient}) jouant contre ${data.awayTeam} (cote: ${data.awayCoefficient}) avec une cote de match nul de ${data.drawCoefficient}. Veuillez ajouter des données de confrontations directes pour des prédictions plus précises.`,
           true
         );
       }, 1000);
@@ -59,7 +59,7 @@ const MatchPredictionPage = () => {
   const handleH2HSubmit = (h2hMatch) => {
     setH2hData(prev => [...prev, h2hMatch]);
     
-    addMessage(`Added H2H match: ${h2hMatch.homeTeam} ${h2hMatch.homeScore}-${h2hMatch.awayScore} ${h2hMatch.awayTeam} (Winner: ${h2hMatch.winner})`);
+addMessage(`Match H2H ajouté: ${h2hMatch.homeTeam} ${h2hMatch.homeScore}-${h2hMatch.awayScore} ${h2hMatch.awayTeam} (Vainqueur: ${h2hMatch.winner})`);
     
     // Trigger prediction if we have enough data
     if (h2hData.length >= 2) {
@@ -75,7 +75,7 @@ const MatchPredictionPage = () => {
     setLoading(true);
     
     try {
-      addMessage("Generating prediction using advanced algorithms...", true);
+addMessage("Génération de la prédiction en utilisant des algorithmes avancés...", true);
       
       const predictionResult = await predictionService.generatePrediction(
         matchData,
@@ -85,16 +85,16 @@ const MatchPredictionPage = () => {
       
       setPrediction(predictionResult);
       
-      addMessage(
-        `Prediction complete! Based on my analysis, I predict ${predictionResult.winner} to win with a confidence of ${predictionResult.confidence}%. Full-time score: ${predictionResult.fullTimeScore}, Total goals: ${predictionResult.totalGoals}`,
+addMessage(
+        `Prédiction terminée ! Basé sur mon analyse, je prédis que ${predictionResult.winner} va gagner avec une confiance de ${predictionResult.confidence}%. Score final: ${predictionResult.fullTimeScore}, Total de buts: ${predictionResult.totalGoals}`,
         true
       );
       
-      toast.success("Prediction generated successfully!");
+toast.success("Prédiction générée avec succès !");
       
     } catch (err) {
       setError(err.message);
-      toast.error("Failed to generate prediction");
+toast.error("Échec de la génération de la prédiction");
     } finally {
       setLoading(false);
     }
@@ -105,28 +105,28 @@ const MatchPredictionPage = () => {
     
     // Simulate AI responses based on message content
     setTimeout(() => {
-      let response = "I understand your question. ";
+let response = "Je comprends votre question. ";
       
-      if (message.toLowerCase().includes("predict") || message.toLowerCase().includes("winner")) {
+if (message.toLowerCase().includes("predict") || message.toLowerCase().includes("winner") || message.toLowerCase().includes("prédiction") || message.toLowerCase().includes("gagnant")) {
         if (prediction) {
-          response += `Based on my analysis, ${prediction.winner} is likely to win with ${prediction.confidence}% confidence.`;
+          response += `Basé sur mon analyse, ${prediction.winner} est susceptible de gagner avec ${prediction.confidence}% de confiance.`;
         } else {
-          response += "Please complete the match details and head-to-head data first for accurate predictions.";
+          response += "Veuillez d'abord compléter les détails du match et les données de confrontations directes pour des prédictions précises.";
         }
       } else if (message.toLowerCase().includes("score")) {
         if (prediction) {
-          response += `I predict the final score will be ${prediction.fullTimeScore} with ${prediction.totalGoals} total goals.`;
+          response += `Je prédis que le score final sera ${prediction.fullTimeScore} avec ${prediction.totalGoals} buts au total.`;
         } else {
-          response += "I'll be able to predict the exact score once you provide more match data.";
+          response += "Je pourrai prédire le score exact une fois que vous fournirez plus de données de match.";
         }
-      } else if (message.toLowerCase().includes("confidence")) {
+      } else if (message.toLowerCase().includes("confidence") || message.toLowerCase().includes("confiance")) {
         if (prediction) {
-          response += `My prediction confidence is ${prediction.confidence}%, based on team performance metrics, head-to-head history, and betting coefficients.`;
+          response += `Ma confiance de prédiction est de ${prediction.confidence}%, basée sur les métriques de performance d'équipe, l'historique des confrontations directes et les cotes de paris.`;
         } else {
-          response += "Prediction confidence will be calculated based on the data quality and historical patterns.";
+          response += "La confiance de prédiction sera calculée en fonction de la qualité des données et des tendances historiques.";
         }
       } else {
-        response += "I can help you with match predictions, team analysis, and betting insights. Feel free to ask about specific teams or matches!";
+        response += "Je peux vous aider avec les prédictions de match, l'analyse d'équipe et les insights de paris. N'hésitez pas à poser des questions sur des équipes ou des matchs spécifiques !";
       }
       
       addMessage(response, true);

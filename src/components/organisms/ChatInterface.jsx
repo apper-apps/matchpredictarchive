@@ -32,8 +32,8 @@ const ChatInterface = ({ messages, onSendMessage, loading }) => {
           <ApperIcon name="MessageSquare" className="w-5 h-5 text-white" />
         </div>
         <div>
-          <h2 className="text-xl font-display font-bold text-white">MatchPredict AI</h2>
-          <p className="text-sm text-white/60">Advanced Football Analytics Assistant</p>
+<h2 className="text-xl font-display font-bold text-white">MatchPredict AI</h2>
+          <p className="text-sm text-white/60">Assistant d'Analyse Football Avancé</p>
         </div>
       </div>
       
@@ -43,12 +43,12 @@ const ChatInterface = ({ messages, onSendMessage, loading }) => {
             <div className="w-16 h-16 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 rounded-full flex items-center justify-center mb-4">
               <ApperIcon name="Bot" className="w-8 h-8 text-primary-400" />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">
-              Welcome to MatchPredict Pro
+<h3 className="text-lg font-semibold text-white mb-2">
+              Bienvenue sur MatchPredict Pro
             </h3>
             <p className="text-white/60 max-w-md">
-              I'm your AI assistant for football match predictions. Start by entering match details in the form, 
-              and I'll provide detailed analysis and predictions based on advanced algorithms.
+              Je suis votre assistant IA pour les prédictions de matchs de football. Commencez par saisir les détails du match dans le formulaire, 
+              et je vous fournirai une analyse détaillée et des prédictions basées sur des algorithmes avancés.
             </p>
           </div>
         ) : (
@@ -63,8 +63,8 @@ const ChatInterface = ({ messages, onSendMessage, loading }) => {
         )}
         
         {loading && (
-          <ChatMessage
-            message="Analyzing match data using advanced algorithms..."
+<ChatMessage
+            message="Analyse des données de match en utilisant des algorithmes avancés..."
             isBot={true}
             timestamp={new Date().toLocaleTimeString()}
           />
@@ -75,7 +75,7 @@ const ChatInterface = ({ messages, onSendMessage, loading }) => {
       
       <form onSubmit={handleSubmit} className="flex space-x-2">
         <Input
-          placeholder="Ask about predictions, team analysis, or match insights..."
+placeholder="Posez des questions sur les prédictions, l'analyse d'équipe, ou les insights de match..."
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           disabled={loading}
